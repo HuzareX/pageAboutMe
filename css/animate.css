@@ -1,0 +1,11 @@
+@keyframes jump {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(-70%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}/*# sourceMappingURL=animate.css.map */
