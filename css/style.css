@@ -21,23 +21,40 @@ body {
 }
 
 .main-nav {
-  position: sticky;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: rgba(0, 255, 255, 0.3);
+  width: 100%;
+  height: 70px;
+  background-color: rgba(37, 102, 45, 0.3);
   z-index: 100;
+}
+.main-nav .fa-solid {
+  position: absolute;
+  display: block;
+  right: 5%;
+  top: 50%;
+  transform: translate(-10%, -50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
 }
 .main-nav .logo {
   position: absolute;
   left: 5%;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 24px;
   color: rgb(255, 255, 255);
   cursor: pointer;
 }
+.main-nav .logo span {
+  color: aquamarine;
+}
 .main-nav .fa-brands {
+  display: none;
   margin: 0px 20px;
   top: 50%;
   transform: translateY(-50%);
@@ -45,12 +62,12 @@ body {
 }
 .main-nav .fa-github {
   position: absolute;
-  right: 25%;
+  right: 15%;
   color: black;
 }
 .main-nav .fa-codepen {
   position: absolute;
-  right: 15%;
+  right: 10%;
   color: white;
 }
 .main-nav .fa-linkedin-in {
@@ -59,6 +76,7 @@ body {
   color: rgb(161, 187, 236);
 }
 .main-nav .nav-to-section {
+  display: none;
   position: relative;
   margin: 20px;
   text-decoration: none;
@@ -81,4 +99,172 @@ body {
 .nav-to-section:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+nav .mobile-nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 0;
+  right: -150%;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(54, 90, 58);
+  z-index: 1000;
+  transition: right 0.5s;
+}
+nav .mobile-nav .logo {
+  position: absolute;
+  top: 5%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+nav .mobile-nav .logo span {
+  color: rgb(127, 255, 212);
+}
+nav .mobile-nav .fa-brands {
+  font-size: 24px;
+  margin: 30px auto;
+  animation: jump 2s linear infinite;
+}
+nav .mobile-nav .fa-github {
+  color: black;
+}
+nav .mobile-nav .fa-codepen {
+  color: white;
+}
+nav .mobile-nav .fa-linkedin-in {
+  color: rgb(161, 187, 236);
+}
+nav .mobile-nav .mobile-nav-to-section {
+  position: relative;
+  margin: 30px auto;
+  padding: 10px 10px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+nav .mobile-nav .fa-xmark {
+  font-size: 42px;
+  cursor: pointer;
+  color: black;
+}
+nav .mobile-nav-to-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s;
+}
+nav .mobile-nav-to-section:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+header .hero-bg {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(/img/artificial-intelligence-g36010af34_640.jpg);
+  background-position: center;
+  background-size: cover;
+}
+header .hero-bg .hero-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+}
+header .hero-bg .hero-text {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 18px;
+}
+header .hero-bg .hero-text h1 {
+  margin: 20px auto;
+}
+header .hero-bg .hero-text h1 .logo {
+  color: rgb(127, 255, 212);
+}
+header .hero-bg .fa-solid {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  color: rgb(204, 216, 34);
+  animation: jump 1s infinite;
+  font-size: 36px;
+}
+
+@media (min-width: 768px) {
+  nav .mobile-nav .logo {
+    font-size: 48px;
+  }
+  nav .mobile-nav .nav-to-section {
+    font-size: 36px;
+  }
+  nav .mobile-nav .fa-brands {
+    font-size: 36px;
+  }
+  nav .mobile-nav .fa-xmark {
+    font-size: 56px;
+  }
+  nav .main-nav {
+    height: 80px;
+  }
+  nav .main-nav .logo {
+    font-size: 36px;
+  }
+  nav .main-nav .fa-solid {
+    font-size: 48px;
+  }
+  header .hero-bg .hero-text {
+    font-size: 28px;
+  }
+  header .hero-bg .fa-solid {
+    font-size: 48px;
+  }
+}
+@media (min-width: 992px) {
+  nav .main-nav .fa-brands {
+    display: block;
+    font-size: 24px;
+  }
+  nav .main-nav .fa-solid {
+    display: none;
+  }
+  nav .main-nav .nav-to-section {
+    font-size: 20px;
+    display: block;
+  }
+  header .hero-bg .hero-text {
+    font-size: 32px;
+  }
+  header .hero-bg .fa-solid {
+    font-size: 56px;
+  }
+}
+@media (min-width: 1400px) {
+  nav .main-nav .fa-brands {
+    font-size: 42px;
+  }
+  nav .main-nav .nav-to-section {
+    font-size: 36px;
+  }
 }/*# sourceMappingURL=style.css.map */
