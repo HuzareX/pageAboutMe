@@ -8,11 +8,11 @@ const mobileNavItems = document.querySelectorAll('.mobile-nav-to-section')
 
 
 const showMobileNav = () => {
-    mobileNav.style.right = "0"
+    mobileNav.style.top = "0"
 }
 
 const closeMobileNav = (e) => {
-    mobileNav.style.right = "-150%"
+    mobileNav.style.top = "-150%"
     
 }
 
