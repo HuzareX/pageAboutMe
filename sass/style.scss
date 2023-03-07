@@ -4,7 +4,7 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background-color: #333;
+
 }
 
 //-----NAV-----
@@ -17,7 +17,7 @@ body {
 	flex-direction: row;
 	width: 100%;
 	height: 70px;
-	background-color: rgba(37, 102, 45, 0.3);
+	background-color: rgba(37, 102, 45, 0.6);
 	z-index: 100;
 	backdrop-filter: blur(6px);
 	.fa-solid {
@@ -221,48 +221,122 @@ header {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-    min-height: 100vh;
+	background: rgb(2,0,36);
+	background: linear-gradient(225deg, rgba(2,0,36,0) 0%, rgba(11,121,9,0.44861694677871145) 28%, rgba(11,121,9,0.958420868347339) 100%);
+	.section-header {
+		position: relative;
+		width: 100vw;
+		margin: 20px auto;
+		background-image: url(/img/never-stop-learning-g63e2a7346_1920.jpg);
+		background-position: center;
+		background-size: cover;
+		background-attachment: fixed;
+		z-index: 1;
+		.shadow {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			z-index: -1;
+		}
+		h2 {
+			margin: 30px auto;
+			text-align: center;
+			color: color.$text-color;
+			z-index: 1;
+		}
+		.underline {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 2px;
+			width: 100vw;
+			background-color: #fff;
+		}
+		.upline {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 2px;
+			width: 100vw;
+			background-color: #fff;
+		}
+	}
 
 	.cards {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		.card {
+
+		.hero-card {
 			position: relative;
-			width: 100vw;
-			text-align: center;
-			border: 1px solid black;
-			margin: 20px auto;
-			.img {
-				position: absolute;
-				background-position: center;
-				background-size: cover;
-				height: 100%;
-				width: 100%;
-				top: 0;
-				left: 0;
-				z-index: -1;
+			width: 90vw;
+			background-position: center;
+			background-size: cover;
+			border-radius: 20px;
+			margin: 20px 0;
+			overflow: hidden;
+			z-index: 1;
+			.hero-text {
+				text-align: center;
+				color: color.$text-color;
+				h3 {
+					margin: 20px auto;
+				}
+				p {
+					margin: 20px auto;
+					padding: 20px;
+				}
 			}
+		}
 
-			.analysis {
-				background-image: url(/img/calculator-ge0f74b410_640.jpg);
-			}
-			.frontend {
-				background-image: url(/img/coding-gad17c6425_640.jpg);
-			}
-			.erp {
-				background-image: url(/img/carlos-muza-hpjSkU2UYSU-unsplash.jpg);
-			}
+		.hero-shadow {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			z-index: -1;
+		}
 
-			h3 {
-				margin: 20px auto;
-			}
-			p {
-				margin: 20px auto;
-				
-			}
+		.analysis {
+			background-image: url(/img/calculator-ge0f74b410_640.jpg);
+		}
 
+		.coding {
+			background-image: url(/img/coding-gad17c6425_640.jpg);
+		}
+
+		.erp {
+			background-image: url(/img/carlos-muza-hpjSkU2UYSU-unsplash.jpg);
+		}
+	}
+
+	.key-words {
+		position: relative;
+		text-align: center;
+		border: 2px solid black;
+		border-radius: 18px;
+		background-color: aliceblue;
+		.moving-key {
+			position: absolute;
+			font-size: 40px;
+			top: 0;
+			left: 0;
+			color: aliceblue;
+			text-shadow: 0px 0px 8px rgb(0, 0, 0);
+			animation: moving 30s linear infinite;
+		}
+		h3 {
+			margin: 20px;
+		}
+		ul {
+			list-style: none;
+			margin: 20px;
 		}
 	}
 }
@@ -311,7 +385,6 @@ header {
 			}
 		}
 	}
-
 }
 
 @media (min-width: 992px) {
@@ -341,15 +414,9 @@ header {
 			}
 		}
 	}
-
 }
 
 @media (min-width: 1200px) {
-	.section-head {
-		position: absolute;
-		display: block;
-	}
-
 }
 
 @media (min-width: 1400px) {

@@ -9,6 +9,28 @@
     transform: translateY(-50%);
   }
 }
+@keyframes moving {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 90%;
+    left: 15%;
+  }
+  50% {
+    top: 50%;
+    left: 75%;
+  }
+  75% {
+    top: 5%;
+    left: 50%;
+  }
+  100% {
+    top: 0;
+    left: 0;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,7 +39,6 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #333;
 }
 
 .main-nav {
@@ -28,7 +49,7 @@ body {
   flex-direction: row;
   width: 100%;
   height: 70px;
-  background-color: rgba(37, 102, 45, 0.3);
+  background-color: rgba(37, 102, 45, 0.6);
   z-index: 100;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
@@ -219,7 +240,49 @@ header .hero-bg .fa-solid {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-height: 100vh;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(225deg, rgba(2, 0, 36, 0) 0%, rgba(11, 121, 9, 0.4486169468) 28%, rgba(11, 121, 9, 0.9584208683) 100%);
+}
+.skills .section-header {
+  position: relative;
+  width: 100vw;
+  margin: 20px auto;
+  background-image: url(/img/never-stop-learning-g63e2a7346_1920.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1;
+}
+.skills .section-header .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+.skills .section-header h2 {
+  margin: 30px auto;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+}
+.skills .section-header .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100vw;
+  background-color: #fff;
+}
+.skills .section-header .upline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100vw;
+  background-color: #fff;
 }
 .skills .cards {
   display: flex;
@@ -227,37 +290,67 @@ header .hero-bg .fa-solid {
   justify-content: center;
   flex-direction: column;
 }
-.skills .cards .card {
+.skills .cards .hero-card {
   position: relative;
-  width: 100vw;
-  text-align: center;
-  border: 1px solid black;
-  margin: 20px auto;
-}
-.skills .cards .card .img {
-  position: absolute;
+  width: 90vw;
   background-position: center;
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  border-radius: 20px;
+  margin: 20px 0;
+  overflow: hidden;
+  z-index: 1;
+}
+.skills .cards .hero-card .hero-text {
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+.skills .cards .hero-card .hero-text h3 {
+  margin: 20px auto;
+}
+.skills .cards .hero-card .hero-text p {
+  margin: 20px auto;
+  padding: 20px;
+}
+.skills .cards .hero-shadow {
+  position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: -1;
 }
-.skills .cards .card .analysis {
+.skills .cards .analysis {
   background-image: url(/img/calculator-ge0f74b410_640.jpg);
 }
-.skills .cards .card .frontend {
+.skills .cards .coding {
   background-image: url(/img/coding-gad17c6425_640.jpg);
 }
-.skills .cards .card .erp {
+.skills .cards .erp {
   background-image: url(/img/carlos-muza-hpjSkU2UYSU-unsplash.jpg);
 }
-.skills .cards .card h3 {
-  margin: 20px auto;
+.skills .key-words {
+  position: relative;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 18px;
+  background-color: aliceblue;
 }
-.skills .cards .card p {
-  margin: 20px auto;
+.skills .key-words .moving-key {
+  position: absolute;
+  font-size: 40px;
+  top: 0;
+  left: 0;
+  color: aliceblue;
+  text-shadow: 0px 0px 8px rgb(0, 0, 0);
+  animation: moving 30s linear infinite;
+}
+.skills .key-words h3 {
+  margin: 20px;
+}
+.skills .key-words ul {
+  list-style: none;
+  margin: 20px;
 }
 
 @media (min-width: 768px) {
@@ -306,12 +399,6 @@ header .hero-bg .fa-solid {
   }
   header .hero-bg .fa-solid {
     font-size: 56px;
-  }
-}
-@media (min-width: 1200px) {
-  .section-head {
-    position: absolute;
-    display: block;
   }
 }
 @media (min-width: 1400px) {
