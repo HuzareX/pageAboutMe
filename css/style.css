@@ -235,25 +235,16 @@ header .hero-bg .fa-solid {
   font-size: 36px;
 }
 
-.skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(225deg, rgba(2, 0, 36, 0) 0%, rgba(11, 121, 9, 0.4486169468) 28%, rgba(11, 121, 9, 0.9584208683) 100%);
-}
-.skills .section-header {
+.header {
   position: relative;
   width: 100vw;
   margin: 20px auto;
-  background-image: url(/img/never-stop-learning-g63e2a7346_1920.jpg);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   z-index: 1;
 }
-.skills .section-header .shadow {
+.header .shadow {
   position: absolute;
   top: 0;
   left: 0;
@@ -262,13 +253,13 @@ header .hero-bg .fa-solid {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: -1;
 }
-.skills .section-header h2 {
+.header h2 {
   margin: 30px auto;
   text-align: center;
   color: rgb(255, 255, 255);
   z-index: 1;
 }
-.skills .section-header .underline {
+.header .underline {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -276,13 +267,24 @@ header .hero-bg .fa-solid {
   width: 100vw;
   background-color: #fff;
 }
-.skills .section-header .upline {
+.header .upline {
   position: absolute;
   top: 0;
   left: 0;
   height: 2px;
   width: 100vw;
   background-color: #fff;
+}
+
+.skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: grey;
+}
+.skills .skills-header {
+  background-image: url(/img/never-stop-learning-g63e2a7346_1920.jpg);
 }
 .skills .cards {
   display: flex;
@@ -299,6 +301,7 @@ header .hero-bg .fa-solid {
   margin: 20px 0;
   overflow: hidden;
   z-index: 1;
+  transition: transform 0.3s;
 }
 .skills .cards .hero-card .hero-text {
   text-align: center;
@@ -306,10 +309,15 @@ header .hero-bg .fa-solid {
 }
 .skills .cards .hero-card .hero-text h3 {
   margin: 20px auto;
+  font-size: 28px;
 }
 .skills .cards .hero-card .hero-text p {
   margin: 20px auto;
   padding: 20px;
+  font-size: 18px;
+}
+.skills .cards .hero-card:hover {
+  transform: scale(102%);
 }
 .skills .cards .hero-shadow {
   position: absolute;
@@ -329,31 +337,31 @@ header .hero-bg .fa-solid {
 .skills .cards .erp {
   background-image: url(/img/carlos-muza-hpjSkU2UYSU-unsplash.jpg);
 }
-.skills .key-words {
-  position: relative;
+.skills .key-words .text {
   text-align: center;
-  border: 2px solid black;
-  border-radius: 18px;
-  background-color: aliceblue;
+  color: rgb(255, 255, 255);
 }
-.skills .key-words .moving-key {
-  position: absolute;
-  font-size: 40px;
-  top: 0;
-  left: 0;
-  color: aliceblue;
-  text-shadow: 0px 0px 8px rgb(0, 0, 0);
-  animation: moving 30s linear infinite;
-}
-.skills .key-words h3 {
+.skills .key-words .text h3 {
   margin: 20px;
+  font-size: 28px;
 }
-.skills .key-words ul {
-  list-style: none;
-  margin: 20px;
+.skills .key-words .text p {
+  margin: 20px 20px 10px 20px;
+  font-size: 18px;
 }
 
-@media (min-width: 768px) {
+.carrer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: lightgrey;
+}
+.carrer .carrer-header {
+  background-image: url(/img/despaired-g7200d4e94_1920.jpg);
+}
+
+@media (min-width: 576px) {
   nav .mobile-nav .logo {
     font-size: 48px;
   }
@@ -370,16 +378,51 @@ header .hero-bg .fa-solid {
     height: 80px;
   }
   nav .main-nav .logo {
-    font-size: 36px;
+    font-size: 48px;
   }
   nav .main-nav .fa-solid {
     font-size: 48px;
+  }
+}
+@media (min-width: 768px) {
+  nav .mobile-nav .logo {
+    font-size: 48px;
+  }
+  nav .mobile-nav .mobile-nav-to-section {
+    font-size: 36px;
+  }
+  nav .mobile-nav .fa-brands {
+    font-size: 42px;
+  }
+  nav .mobile-nav .fa-xmark {
+    font-size: 56px;
+  }
+  nav .main-nav {
+    height: 80px;
+  }
+  nav .main-nav .logo {
+    font-size: 36px;
+  }
+  nav .main-nav .fa-solid {
+    font-size: 36px;
   }
   header .hero-bg .hero-text {
     font-size: 28px;
   }
   header .hero-bg .fa-solid {
     font-size: 48px;
+  }
+  .skills .cards .hero-card .hero-text h3 {
+    font-size: 36px;
+  }
+  .skills .cards .hero-card .hero-text p {
+    font-size: 28px;
+  }
+  .skills .key-words .text h3 {
+    font-size: 36px;
+  }
+  .skills .key-words .text p {
+    font-size: 28px;
   }
 }
 @media (min-width: 992px) {
@@ -395,7 +438,7 @@ header .hero-bg .fa-solid {
     display: block;
   }
   header .hero-bg .hero-text {
-    font-size: 28px;
+    font-size: 36px;
   }
   header .hero-bg .fa-solid {
     font-size: 56px;
@@ -407,5 +450,13 @@ header .hero-bg .fa-solid {
   }
   nav .main-nav .nav-to-section {
     font-size: 36px;
+  }
+  .skills .cards {
+    flex-direction: row;
+  }
+  .skills .cards .hero-card {
+    width: 30vw;
+    margin: 20px;
+    align-self: stretch;
   }
 }/*# sourceMappingURL=style.css.map */

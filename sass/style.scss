@@ -4,7 +4,6 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-
 }
 
 //-----NAV-----
@@ -214,55 +213,56 @@ header {
 	}
 }
 
-//-----SKILLS-----
-
+//-----HEADING-----
+.header {
+	position: relative;
+	width: 100vw;
+	margin: 20px auto;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	z-index: 1;
+	.shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: -1;
+	}
+	h2 {
+		margin: 30px auto;
+		text-align: center;
+		color: color.$text-color;
+		z-index: 1;
+	}
+	.underline {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 2px;
+		width: 100vw;
+		background-color: #fff;
+	}
+	.upline {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 2px;
+		width: 100vw;
+		background-color: #fff;
+	}
+}
+// ----SKILLS----
 .skills {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background: rgb(2,0,36);
-	background: linear-gradient(225deg, rgba(2,0,36,0) 0%, rgba(11,121,9,0.44861694677871145) 28%, rgba(11,121,9,0.958420868347339) 100%);
-	.section-header {
-		position: relative;
-		width: 100vw;
-		margin: 20px auto;
+	background-color: grey;
+	.skills-header {
 		background-image: url(/img/never-stop-learning-g63e2a7346_1920.jpg);
-		background-position: center;
-		background-size: cover;
-		background-attachment: fixed;
-		z-index: 1;
-		.shadow {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-color: rgba(0, 0, 0, 0.7);
-			z-index: -1;
-		}
-		h2 {
-			margin: 30px auto;
-			text-align: center;
-			color: color.$text-color;
-			z-index: 1;
-		}
-		.underline {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			height: 2px;
-			width: 100vw;
-			background-color: #fff;
-		}
-		.upline {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 2px;
-			width: 100vw;
-			background-color: #fff;
-		}
 	}
 
 	.cards {
@@ -280,17 +280,24 @@ header {
 			margin: 20px 0;
 			overflow: hidden;
 			z-index: 1;
+			transition: transform 0.3s;
 			.hero-text {
 				text-align: center;
 				color: color.$text-color;
 				h3 {
 					margin: 20px auto;
+					font-size: 28px;
 				}
 				p {
 					margin: 20px auto;
 					padding: 20px;
+					font-size: 18px;
 				}
 			}
+		}
+
+		.hero-card:hover {
+			transform: scale(102%);
 		}
 
 		.hero-shadow {
@@ -317,36 +324,35 @@ header {
 	}
 
 	.key-words {
-		position: relative;
-		text-align: center;
-		border: 2px solid black;
-		border-radius: 18px;
-		background-color: aliceblue;
-		.moving-key {
-			position: absolute;
-			font-size: 40px;
-			top: 0;
-			left: 0;
-			color: aliceblue;
-			text-shadow: 0px 0px 8px rgb(0, 0, 0);
-			animation: moving 30s linear infinite;
+		.text {
+			text-align: center;
+			color: color.$text-color;
+			h3 {
+				margin: 20px;
+				font-size: 28px;
+			}
+			p {
+				margin: 20px 20px 10px 20px;
+				font-size: 18px;
+			}
 		}
-		h3 {
-			margin: 20px;
-		}
-		ul {
-			list-style: none;
-			margin: 20px;
-		}
+	}
+}
+
+.carrer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: lightgrey;
+	.carrer-header {
+		background-image: url(/img/despaired-g7200d4e94_1920.jpg);
 	}
 }
 
 //-----RESPONSIVE-----
 
 @media (min-width: 576px) {
-}
-
-@media (min-width: 768px) {
 	nav {
 		.mobile-nav {
 			.logo {
@@ -367,10 +373,40 @@ header {
 		.main-nav {
 			height: 80px;
 			.logo {
-				font-size: 36px;
+				font-size: 48px;
 			}
 			.fa-solid {
 				font-size: 48px;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	nav {
+		.mobile-nav {
+			.logo {
+				font-size: 48px;
+			}
+			.mobile-nav-to-section {
+				font-size: 36px;
+			}
+
+			.fa-brands {
+				font-size: 42px;
+			}
+
+			.fa-xmark {
+				font-size: 56px;
+			}
+		}
+		.main-nav {
+			height: 80px;
+			.logo {
+				font-size: 36px;
+			}
+			.fa-solid {
+				font-size: 36px;
 			}
 		}
 	}
@@ -382,6 +418,31 @@ header {
 			}
 			.fa-solid {
 				font-size: 48px;
+			}
+		}
+	}
+
+	.skills {
+		.cards {
+			.hero-card {
+				.hero-text {
+					h3 {
+						font-size: 36px;
+					}
+					p {
+						font-size: 28px;
+					}
+				}
+			}
+		}
+		.key-words {
+			.text {
+				h3 {
+					font-size: 36px;
+				}
+				p {
+					font-size: 28px;
+				}
 			}
 		}
 	}
@@ -407,7 +468,7 @@ header {
 	header {
 		.hero-bg {
 			.hero-text {
-				font-size: 28px;
+				font-size: 36px;
 			}
 			.fa-solid {
 				font-size: 56px;
@@ -427,6 +488,16 @@ header {
 			}
 			.nav-to-section {
 				font-size: 36px;
+			}
+		}
+	}
+	.skills {
+		.cards {
+			flex-direction: row;
+			.hero-card {
+				width: 30vw;
+				margin: 20px;
+				align-self: stretch;
 			}
 		}
 	}
