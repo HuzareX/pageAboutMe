@@ -16,7 +16,7 @@ body {
 	flex-direction: row;
 	width: 100%;
 	height: 70px;
-	background-color: rgba(37, 102, 45, 0.6);
+	background-color: rgba(5, 5, 5, 0.6);
 	z-index: 100;
 	backdrop-filter: blur(6px);
 	.fa-solid {
@@ -38,7 +38,8 @@ body {
 		color: color.$text-color;
 		cursor: pointer;
 		span {
-			color: aquamarine;
+			color: black;
+			animation: changeColor 5s linear infinite;
 		}
 	}
 	.fa-brands {
@@ -91,7 +92,6 @@ body {
 }
 
 //----MOBILENAV-----
-
 nav {
 	.mobile-nav {
 		position: fixed;
@@ -99,13 +99,15 @@ nav {
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		top: -150%;
+		top: 0;
 		right: 0;
+		transform: translateX(100%);
 		height: 100vh;
 		width: 100vw;
-		background-color: rgb(54, 90, 58);
+		background-color: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(8px);
 		z-index: 1000;
-		transition: top 0.5s;
+		transition: transform 0.5s;
 		.logo {
 			position: absolute;
 			top: 5%;
@@ -114,7 +116,8 @@ nav {
 			color: color.$text-color;
 			cursor: pointer;
 			span {
-				color: color.$logo-color;
+				color: color.$text-color;
+				animation: changeColor 5s linear infinite;
 			}
 		}
 		.fa-brands {
@@ -138,14 +141,17 @@ nav {
 			text-decoration: none;
 			color: color.$text-color;
 		}
-
+		
 		.fa-xmark {
 			font-size: 42px;
 			cursor: pointer;
 			color: black;
 		}
 	}
-
+	.nav-active {
+		transform: translateX(0);
+	}
+	
 	.mobile-nav-to-section::after {
 		content: '';
 		position: absolute;
@@ -158,7 +164,7 @@ nav {
 		transform-origin: right;
 		transition: transform 0.3s;
 	}
-
+	
 	.mobile-nav-to-section:hover::after {
 		transform: scaleX(1);
 		transform-origin: left;
@@ -167,52 +173,74 @@ nav {
 
 //-----HEADER-----
 header {
-	.hero-bg {
-		position: relative;
-		height: 100vh;
-		width: 100vw;
-		background-image: url(/img/artificial-intelligence-g36010af34_640.jpg);
-		background-position: center;
-		background-size: cover;
-
-		.hero-shadow {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-color: rgba(0, 0, 0, 0.7);
-			backdrop-filter: blur(6px);
-		}
-
-		.hero-text {
-			position: absolute;
-			top: 30%;
-			left: 50%;
-			transform: translate(-50%, -30%);
-			color: color.$text-color;
+	position: relative;
+	height: 100vh;
+	.left {
+		position: absolute;
+		height: 100%;
+		top: 0;
+		left: 0;
+		width: 50vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		h1 {
+			margin: 20px;
 			text-align: center;
-			font-size: 18px;
-			h1 {
-				margin: 20px auto;
-				.logo {
-					color: color.$logo-color;
-				}
+			span {
+				animation: changeColor 5s linear infinite;
 			}
 		}
-
-		.fa-solid {
-			position: absolute;
-			bottom: 10%;
-			left: 50%;
-			transform: translate(-10%, -50%);
-			color: color.$cta-color;
-			animation: jump 1s infinite;
+		p {
+			margin: 20px;
+			font-size: 18px;
+		}
+		a {
+			margin-top: 200px;
+			animation: jump 2s linear infinite;
 			font-size: 36px;
+			color: black;
+			cursor: pointer;
+		}
+	}
+	.right {
+		position: absolute;
+		height: 100%;
+		width: 50vw;
+		top: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		background-image: url(/img/hd-wallpaper-gf16d1696e_640.jpg);
+		background-size: cover;
+		background-position: center;
+		ul {
+			margin: 20px;
+			list-style: none;
+		}
+		li {
+			span {
+				font-weight: 700;
+				font-size: 22px;
+			}
+			font-size: 18px;
+		}
+		.a {
+			align-self: flex-end;
+		}
+
+		.b {
+			align-self: center;
+		}
+
+		.c {
+			align-self: flex-start;
 		}
 	}
 }
-
 //-----HEADING-----
 .header {
 	position: relative;
@@ -236,6 +264,7 @@ header {
 		text-align: center;
 		color: color.$text-color;
 		z-index: 1;
+		animation: changeColor 5s linear infinite;
 	}
 	.underline {
 		position: absolute;
@@ -243,7 +272,7 @@ header {
 		left: 0;
 		height: 2px;
 		width: 100vw;
-		background-color: #fff;
+		background-color: #ff0000;
 	}
 	.upline {
 		position: absolute;
@@ -251,16 +280,17 @@ header {
 		left: 0;
 		height: 2px;
 		width: 100vw;
-		background-color: #fff;
+		background-color: #09ff00;
 	}
 }
 // ----SKILLS----
 .skills {
 	display: flex;
+	min-height: 100vh;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-color: grey;
+	background-color: #fff;
 	.skills-header {
 		background-image: url(/img/never-stop-learning-g63e2a7346_1920.jpg);
 	}
@@ -326,7 +356,7 @@ header {
 	.key-words {
 		.text {
 			text-align: center;
-			color: color.$text-color;
+			color: black;
 			h3 {
 				margin: 20px;
 				font-size: 28px;
@@ -338,16 +368,169 @@ header {
 		}
 	}
 }
-
+//----CARRER----
 .carrer {
+	min-height: 100vh;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	background-color: rgb(255, 255, 255);
+	.carrer-header {
+		background-image: url(/img/despaired-g7200d4e94_1920.jpg);
+	}
+
+	.info {
+		position: relative;
+		width: 100vw;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		.text-box {
+			width: 50%;
+		}
+		h2,
+		h3 {
+			margin: 20px;
+		}
+		p {
+			margin: 10px 20px;
+			i {
+				margin: 10px;
+			}
+		}
+
+		.img {
+			position: absolute;
+			height: 100%;
+			width: 50%;
+			left: 50%;
+			bottom: 0;
+			background-size: cover;
+			background-position: center;
+		}
+
+		.dino {
+			background-image: url(/img/doki.jpg);
+		}
+
+		.oke {
+			background-image: url(/img/-697899434-img5_196036_large.jpg);
+		}
+
+		.amcor {
+			background-image: url(/img/R.jfif);
+		}
+		.underline {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background-color: #09ff00;
+			animation: changeBackground 5s linear infinite;
+		}
+	}
+}
+
+//-----HOBBY-----
+
+.hobby {
+	position: relative;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background-color: lightgrey;
-	.carrer-header {
-		background-image: url(/img/despaired-g7200d4e94_1920.jpg);
+	background-color: #fff;
+	.hobby-header {
+		background-image: url(/img/basketball-gc869ab24b_1920.jpg);
 	}
+
+	.hobby-nav {
+		i {
+			margin: 50px;
+			font-size: 50px;
+			cursor: pointer;
+		}
+
+		.fa-fish {
+			color: rgb(59, 115, 148);
+		}
+
+		.fa-chess-king {
+			color: goldenrod;
+		}
+
+		.fa-code {
+			animation: changeColor 5s linear infinite;
+		}
+	}
+
+	.wrappers {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		.wrapper {
+			position: relative;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			flex-direction: column;
+			height: 50vh;
+			width: 30vw;
+			background-size: cover;
+			background-position: center;
+			background-color: #ff0000;
+			margin: 40px 20px;
+			border-radius: 20px;
+			overflow: hidden;
+			
+			.wrapper-shadow {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, 0.6);
+				height: 100%;
+				width: 100%;
+				z-index: -1;
+				
+			}
+			.wrapper-text {
+				text-align: center;
+				margin: 20px;
+				color: white;
+				z-index: -1;
+				h3 {
+					margin: 20px;
+				}
+
+				.active-shadow {
+					z-index: 1;
+				}
+			}
+
+		}
+
+		.fish {
+			background-image: url(/img/landscape-gac9d5578f_1920.jpg);
+			
+		}
+
+		.code {
+			background-image: url(/img/html-g65da77db3_1920.png);
+			
+		}
+
+		.game {
+			background-image: url(/img/dice-gc5ea4a184_1920.jpg);
+			
+		}
+	}
+
 }
 
 //-----RESPONSIVE-----
@@ -412,12 +595,26 @@ header {
 	}
 
 	header {
-		.hero-bg {
-			.hero-text {
+		.left {
+			h1 {
+				font-size: 36px;
+			}
+			p {
 				font-size: 28px;
 			}
-			.fa-solid {
-				font-size: 48px;
+			a {
+				font-size: 42px;
+			}
+		}
+
+		.right {
+			ul {
+				li {
+					font-size: 36px;
+					span {
+						font-size: 42px;
+					}
+				}
 			}
 		}
 	}
@@ -466,12 +663,26 @@ header {
 	}
 
 	header {
-		.hero-bg {
-			.hero-text {
-				font-size: 36px;
+		.left {
+			h1 {
+				font-size: 64px;
 			}
-			.fa-solid {
-				font-size: 56px;
+			p {
+				font-size: 42px;
+			}
+			a {
+				font-size: 64px;
+			}
+		}
+
+		.right {
+			ul {
+				li {
+					font-size: 42px;
+					span {
+						font-size: 54px;
+					}
+				}
 			}
 		}
 	}
@@ -499,6 +710,11 @@ header {
 				margin: 20px;
 				align-self: stretch;
 			}
+		}
+	}
+	header {
+		.right {
+			flex-direction: row;
 		}
 	}
 }

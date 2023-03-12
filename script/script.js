@@ -1,21 +1,27 @@
-//---NAVBAR---
-
 const mobileNav = document.querySelector('.mobile-nav')
-const burgetBtn = document.querySelector('.fa-bars')
-const closeBtn = document.querySelector('.fa-xmark')
-const mobileNavItems = document.querySelectorAll('.mobile-nav-to-section')
+const navBtn = document.querySelector('.fa-bars')
+const closeNavBtn = document.querySelector('.fa-xmark')
+const navItems = document.querySelectorAll('.mobile-nav-to-section')
 
 
+const handleNav = () => {
+    mobileNav.classList.toggle('nav-active')
 
-const showMobileNav = () => {
-    mobileNav.style.top = "0"
+    navItems.forEach(e => {
+        e.addEventListener('click', () => {
+            mobileNav.classList.remove('nav-active')
+        })
+    })
 }
 
-const closeMobileNav = (e) => {
-    mobileNav.style.top = "-150%"
-    
-}
+navBtn.addEventListener('click', handleNav)
+closeNavBtn.addEventListener('click', handleNav)
 
-burgetBtn.addEventListener('click', showMobileNav)
-closeBtn.addEventListener('click', closeMobileNav)
-mobileNavItems.addEventListener('click', closeMobileNav)
+
+
+
+
+
+
+
+

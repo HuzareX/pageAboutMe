@@ -9,26 +9,44 @@
     transform: translateY(-50%);
   }
 }
-@keyframes moving {
+@keyframes changeColor {
   0% {
-    top: 0;
-    left: 0;
+    color: aqua;
   }
   25% {
-    top: 90%;
-    left: 15%;
+    color: burlywood;
   }
   50% {
-    top: 50%;
-    left: 75%;
+    color: pink;
   }
   75% {
-    top: 5%;
-    left: 50%;
+    color: chartreuse;
+  }
+  90% {
+    color: darkorange;
   }
   100% {
-    top: 0;
-    left: 0;
+    color: aqua;
+  }
+}
+@keyframes changeBackground {
+  0% {
+    background-color: aqua;
+  }
+  25% {
+    background-color: burlywood;
+  }
+  50% {
+    background-color: pink;
+  }
+  75% {
+    background-color: chartreuse;
+  }
+  90% {
+    background-color: darkorange;
+  }
+  100% {
+    background-color: aqua;
   }
 }
 * {
@@ -49,7 +67,7 @@ body {
   flex-direction: row;
   width: 100%;
   height: 70px;
-  background-color: rgba(37, 102, 45, 0.6);
+  background-color: rgba(5, 5, 5, 0.6);
   z-index: 100;
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
@@ -74,7 +92,8 @@ body {
   cursor: pointer;
 }
 .main-nav .logo span {
-  color: aquamarine;
+  color: black;
+  animation: changeColor 5s linear infinite;
 }
 .main-nav .fa-brands {
   display: none;
@@ -130,13 +149,16 @@ nav .mobile-nav {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  top: -150%;
+  top: 0;
   right: 0;
+  transform: translateX(100%);
   height: 100vh;
   width: 100vw;
-  background-color: rgb(54, 90, 58);
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
   z-index: 1000;
-  transition: top 0.5s;
+  transition: transform 0.5s;
 }
 nav .mobile-nav .logo {
   position: absolute;
@@ -147,7 +169,8 @@ nav .mobile-nav .logo {
   cursor: pointer;
 }
 nav .mobile-nav .logo span {
-  color: rgb(127, 255, 212);
+  color: rgb(255, 255, 255);
+  animation: changeColor 5s linear infinite;
 }
 nav .mobile-nav .fa-brands {
   font-size: 24px;
@@ -175,6 +198,9 @@ nav .mobile-nav .fa-xmark {
   cursor: pointer;
   color: black;
 }
+nav .nav-active {
+  transform: translateX(0);
+}
 nav .mobile-nav-to-section::after {
   content: "";
   position: absolute;
@@ -192,47 +218,72 @@ nav .mobile-nav-to-section:hover::after {
   transform-origin: left;
 }
 
-header .hero-bg {
+header {
   position: relative;
   height: 100vh;
-  width: 100vw;
-  background-image: url(/img/artificial-intelligence-g36010af34_640.jpg);
-  background-position: center;
-  background-size: cover;
 }
-header .hero-bg .hero-shadow {
+header .left {
   position: absolute;
+  height: 100%;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  -webkit-backdrop-filter: blur(6px);
-          backdrop-filter: blur(6px);
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-header .hero-bg .hero-text {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -30%);
-  color: rgb(255, 255, 255);
+header .left h1 {
+  margin: 20px;
   text-align: center;
+}
+header .left h1 span {
+  animation: changeColor 5s linear infinite;
+}
+header .left p {
+  margin: 20px;
   font-size: 18px;
 }
-header .hero-bg .hero-text h1 {
-  margin: 20px auto;
-}
-header .hero-bg .hero-text h1 .logo {
-  color: rgb(127, 255, 212);
-}
-header .hero-bg .fa-solid {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translate(-10%, -50%);
-  color: rgb(204, 216, 34);
-  animation: jump 1s infinite;
+header .left a {
+  margin-top: 200px;
+  animation: jump 2s linear infinite;
   font-size: 36px;
+  color: black;
+  cursor: pointer;
+}
+header .right {
+  position: absolute;
+  height: 100%;
+  width: 50vw;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(/img/hd-wallpaper-gf16d1696e_640.jpg);
+  background-size: cover;
+  background-position: center;
+}
+header .right ul {
+  margin: 20px;
+  list-style: none;
+}
+header .right li {
+  font-size: 18px;
+}
+header .right li span {
+  font-weight: 700;
+  font-size: 22px;
+}
+header .right .a {
+  align-self: flex-end;
+}
+header .right .b {
+  align-self: center;
+}
+header .right .c {
+  align-self: flex-start;
 }
 
 .header {
@@ -258,6 +309,7 @@ header .hero-bg .fa-solid {
   text-align: center;
   color: rgb(255, 255, 255);
   z-index: 1;
+  animation: changeColor 5s linear infinite;
 }
 .header .underline {
   position: absolute;
@@ -265,7 +317,7 @@ header .hero-bg .fa-solid {
   left: 0;
   height: 2px;
   width: 100vw;
-  background-color: #fff;
+  background-color: #ff0000;
 }
 .header .upline {
   position: absolute;
@@ -273,15 +325,16 @@ header .hero-bg .fa-solid {
   left: 0;
   height: 2px;
   width: 100vw;
-  background-color: #fff;
+  background-color: #09ff00;
 }
 
 .skills {
   display: flex;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: grey;
+  background-color: #fff;
 }
 .skills .skills-header {
   background-image: url(/img/never-stop-learning-g63e2a7346_1920.jpg);
@@ -339,7 +392,7 @@ header .hero-bg .fa-solid {
 }
 .skills .key-words .text {
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: black;
 }
 .skills .key-words .text h3 {
   margin: 20px;
@@ -351,14 +404,142 @@ header .hero-bg .fa-solid {
 }
 
 .carrer {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+}
+.carrer .carrer-header {
+  background-image: url(/img/despaired-g7200d4e94_1920.jpg);
+}
+.carrer .info {
+  position: relative;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.carrer .info .text-box {
+  width: 50%;
+}
+.carrer .info h2,
+.carrer .info h3 {
+  margin: 20px;
+}
+.carrer .info p {
+  margin: 10px 20px;
+}
+.carrer .info p i {
+  margin: 10px;
+}
+.carrer .info .img {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 50%;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+}
+.carrer .info .dino {
+  background-image: url(/img/doki.jpg);
+}
+.carrer .info .oke {
+  background-image: url(/img/-697899434-img5_196036_large.jpg);
+}
+.carrer .info .amcor {
+  background-image: url(/img/R.jfif);
+}
+.carrer .info .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #09ff00;
+  animation: changeBackground 5s linear infinite;
+}
+
+.hobby {
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: lightgrey;
+  background-color: #fff;
 }
-.carrer .carrer-header {
-  background-image: url(/img/despaired-g7200d4e94_1920.jpg);
+.hobby .hobby-header {
+  background-image: url(/img/basketball-gc869ab24b_1920.jpg);
+}
+.hobby .hobby-nav i {
+  margin: 50px;
+  font-size: 50px;
+  cursor: pointer;
+}
+.hobby .hobby-nav .fa-fish {
+  color: rgb(59, 115, 148);
+}
+.hobby .hobby-nav .fa-chess-king {
+  color: goldenrod;
+}
+.hobby .hobby-nav .fa-code {
+  animation: changeColor 5s linear infinite;
+}
+.hobby .wrappers {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.hobby .wrappers .wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  width: 30vw;
+  background-size: cover;
+  background-position: center;
+  background-color: #ff0000;
+  margin: 40px 20px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.hobby .wrappers .wrapper .wrapper-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.hobby .wrappers .wrapper .wrapper-text {
+  text-align: center;
+  margin: 20px;
+  color: white;
+  z-index: -1;
+}
+.hobby .wrappers .wrapper .wrapper-text h3 {
+  margin: 20px;
+}
+.hobby .wrappers .wrapper .wrapper-text .active-shadow {
+  z-index: 1;
+}
+.hobby .wrappers .fish {
+  background-image: url(/img/landscape-gac9d5578f_1920.jpg);
+}
+.hobby .wrappers .code {
+  background-image: url(/img/html-g65da77db3_1920.png);
+}
+.hobby .wrappers .game {
+  background-image: url(/img/dice-gc5ea4a184_1920.jpg);
 }
 
 @media (min-width: 576px) {
@@ -406,11 +587,20 @@ header .hero-bg .fa-solid {
   nav .main-nav .fa-solid {
     font-size: 36px;
   }
-  header .hero-bg .hero-text {
+  header .left h1 {
+    font-size: 36px;
+  }
+  header .left p {
     font-size: 28px;
   }
-  header .hero-bg .fa-solid {
-    font-size: 48px;
+  header .left a {
+    font-size: 42px;
+  }
+  header .right ul li {
+    font-size: 36px;
+  }
+  header .right ul li span {
+    font-size: 42px;
   }
   .skills .cards .hero-card .hero-text h3 {
     font-size: 36px;
@@ -437,11 +627,20 @@ header .hero-bg .fa-solid {
     font-size: 20px;
     display: block;
   }
-  header .hero-bg .hero-text {
-    font-size: 36px;
+  header .left h1 {
+    font-size: 64px;
   }
-  header .hero-bg .fa-solid {
-    font-size: 56px;
+  header .left p {
+    font-size: 42px;
+  }
+  header .left a {
+    font-size: 64px;
+  }
+  header .right ul li {
+    font-size: 42px;
+  }
+  header .right ul li span {
+    font-size: 54px;
   }
 }
 @media (min-width: 1400px) {
@@ -458,5 +657,8 @@ header .hero-bg .fa-solid {
     width: 30vw;
     margin: 20px;
     align-self: stretch;
+  }
+  header .right {
+    flex-direction: row;
   }
 }/*# sourceMappingURL=style.css.map */

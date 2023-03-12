@@ -9,25 +9,43 @@
     transform: translateY(-50%);
   }
 }
-@keyframes moving {
+@keyframes changeColor {
   0% {
-    top: 0;
-    left: 0;
+    color: aqua;
   }
   25% {
-    top: 90%;
-    left: 15%;
+    color: burlywood;
   }
   50% {
-    top: 50%;
-    left: 75%;
+    color: pink;
   }
   75% {
-    top: 5%;
-    left: 50%;
+    color: chartreuse;
+  }
+  90% {
+    color: darkorange;
   }
   100% {
-    top: 0;
-    left: 0;
+    color: aqua;
+  }
+}
+@keyframes changeBackground {
+  0% {
+    background-color: aqua;
+  }
+  25% {
+    background-color: burlywood;
+  }
+  50% {
+    background-color: pink;
+  }
+  75% {
+    background-color: chartreuse;
+  }
+  90% {
+    background-color: darkorange;
+  }
+  100% {
+    background-color: aqua;
   }
 }/*# sourceMappingURL=animate.css.map */
