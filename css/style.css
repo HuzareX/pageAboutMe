@@ -476,20 +476,6 @@ header .right .c {
 .hobby .hobby-header {
   background-image: url(/img/basketball-gc869ab24b_1920.jpg);
 }
-.hobby .hobby-nav i {
-  margin: 50px;
-  font-size: 50px;
-  cursor: pointer;
-}
-.hobby .hobby-nav .fa-fish {
-  color: rgb(59, 115, 148);
-}
-.hobby .hobby-nav .fa-chess-king {
-  color: goldenrod;
-}
-.hobby .hobby-nav .fa-code {
-  animation: changeColor 5s linear infinite;
-}
 .hobby .wrappers {
   display: flex;
   flex-direction: row;
@@ -503,13 +489,14 @@ header .right .c {
   align-items: center;
   flex-direction: column;
   height: 50vh;
-  width: 30vw;
+  width: 33%;
+  margin: 0 20px;
   background-size: cover;
   background-position: center;
   background-color: #ff0000;
-  margin: 40px 20px;
   border-radius: 20px;
   overflow: hidden;
+  z-index: 20;
 }
 .hobby .wrappers .wrapper .wrapper-shadow {
   position: absolute;
@@ -519,18 +506,22 @@ header .right .c {
   height: 100%;
   width: 100%;
   z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s;
 }
 .hobby .wrappers .wrapper .wrapper-text {
   text-align: center;
   margin: 20px;
   color: white;
-  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s;
 }
 .hobby .wrappers .wrapper .wrapper-text h3 {
   margin: 20px;
 }
-.hobby .wrappers .wrapper .wrapper-text .active-shadow {
-  z-index: 1;
+.hobby .wrappers .wrapper .wrapper-text .fa-solid {
+  margin: 50px;
+  animation: changeColor 5s linear infinite;
 }
 .hobby .wrappers .fish {
   background-image: url(/img/landscape-gac9d5578f_1920.jpg);
@@ -540,6 +531,12 @@ header .right .c {
 }
 .hobby .wrappers .game {
   background-image: url(/img/dice-gc5ea4a184_1920.jpg);
+}
+.hobby .wrapper:hover .wrapper-shadow {
+  opacity: 1;
+}
+.hobby .wrapper:hover .wrapper-text {
+  opacity: 1;
 }
 
 @media (min-width: 576px) {
